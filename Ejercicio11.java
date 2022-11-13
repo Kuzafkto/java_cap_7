@@ -10,43 +10,41 @@ array resultante.
  *@author KuzaFkto
  */
 
-
+import java.util.Scanner;
 import java.util.Arrays;
 
 public class Ejercicio11 {
     public static void main(String[] args) {
         int[] n =new int [10];
+        Scanner sc=new Scanner (System.in);
         int counter=0;
         boolean prime=true;
         int[] nonprimes =new int[10];
         Arrays.fill(nonprimes, -1);
         for(int i=0; i<n.length;i++){
-            n[i]=(int)(Math.random()*101);
+            System.out.print("Introduce un número entre 0 y 100 para ingresar al array: ");
+            n[i]=sc.nextInt();
+            while(n[i]<0||n[i]>100){
+                    System.out.print("Error, el número debe ser mayor a 0 y menor a 100. Vuelva a ingresarlo:  ");
+                    n[i]=sc.nextInt();
+            }
         }
         /*First array table*/
         System.out.print("Índice: ");
 
-        for(int i=0;i<n.length;i++){
-            System.out.printf("%-3s%d%-3s"," ",i," ");
-        }
-        System.out.print("\n ");
-        System.out.print("       ");
-        for(int i=0;i<n.length;i++){
-            System.out.print("-------");
-        }
-        System.out.print("\n ");
-        System.out.printf("%6s%2s","Valor:","|");
-        for (int j : n) {
-            System.out.printf("%2s%d%3s", " ", j, " |");
-        }
-        System.out.print("\n ");
-        System.out.print("       ");
-        for(int i=0;i<n.length;i++){
-            System.out.print("-------");
-        }
+        System.out.print("   0      1      2      3      4      5      6      7      8      9   \n");
 
-        System.out.printf("\n%48s","Array inicial");
-        System.out.print("\n \n");
+        System.out.print("        ----------------------------------------------------------------------\n");
+        System.out.printf("%7s%2s","Valor:","|");
+        for (int j : n) {
+            if(j<10){
+                System.out.printf("  %1d  | ",j);
+            }else{
+                System.out.printf(" %3d  |",j);
+            }
+        }
+        System.out.print("\n        ----------------------------------------------------------------------\n");
+        System.out.printf("%50s","Array inicial\n\n");
 
         /*First array table*/
 
@@ -78,27 +76,19 @@ public class Ejercicio11 {
         /*Second array table*/
         System.out.print("Índice: ");
 
-        for(int i=0;i<n.length;i++){
-            System.out.printf("%-3s%d%-3s"," ",i," ");
-        }
-        System.out.print("\n ");
-        System.out.print("       ");
-        for(int i=0;i<n.length;i++){
-            System.out.print("-------");
-        }
-        System.out.print("\n ");
-        System.out.printf("%6s%2s","Valor:","|");
-        for (int j : n) {
-            System.out.printf("%2s%d%3s", " ", j, " |");
-        }
-        System.out.print("\n ");
-        System.out.print("       ");
-        for(int i=0;i<n.length;i++){
-            System.out.print("-------");
-        }
+        System.out.print("   0      1      2      3      4      5      6      7      8      9   \n");
 
-        System.out.printf("\n%48s","Array final");
-        System.out.print("\n \n");
+        System.out.print("        ----------------------------------------------------------------------\n");
+        System.out.printf("%7s%2s","Valor:","|");
+        for (int j : n) {
+            if(j<10){
+                System.out.printf("  %1d  | ",j);
+            }else{
+                System.out.printf(" %3d  |",j);
+            }
+        }
+        System.out.print("\n        ----------------------------------------------------------------------\n");
+        System.out.printf("%48s","Array final");
 
         /*Second array table*/
     }
