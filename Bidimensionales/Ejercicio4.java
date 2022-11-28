@@ -8,13 +8,18 @@ que el ordenador se queda “pensando” antes de mostrar los números.
 package Bidimensionales;
 
 
+import java.util.Scanner;
+
 public class Ejercicio4 {
     public static void main(String[] args) throws InterruptedException {
-        int [][] n=new int[4][5];
+        Scanner sc = new Scanner(System.in);
+        int filas=4;
+        int columnas=5;
+        int [][] n=new int[filas][columnas];
         int total=0;
-        for(int i=0;i<4;i++){
-            for(int j=0;j<5;j++){
-                n[i][j]=100+(int)(Math.random()*(1000-100));
+        for(int i=0;i<filas;i++){
+            for(int j=0;j<columnas;j++){
+                n[i][j]=100+(int)(Math.random()*900);
                 total+=n[i][j];
             }
         }
@@ -22,22 +27,29 @@ public class Ejercicio4 {
 
         System.out.print("    0     1     2     3     4   \n");
         System.out.print("           -----------------------------\n");
-        for (int i=0;i<4;i++){
+        for (int i=0;i<filas;i++){
             System.out.printf("%10s","");
-            for (int j=0;j<5;j++){
-                Thread.sleep(100+(int)(Math.random()*901));
+            for (int j=0;j<columnas;j++){
+                Thread.sleep(100+(int)(Math.random()*900));
                 System.out.printf(" %3d |",n[i][j]);
             }
-            Thread.sleep((int)(Math.random()*1501));
-
             System.out.printf("%8s","Fila "+i);
             System.out.println();
             System.out.print("           -----------------------------\n");
 
         }
+        System.out.printf("%10s","");
+        for(int j=0;j<columnas;j++){
+            int totalcolumna=0;
+            for(int i=0;i<filas;i++){
+                totalcolumna+=n[i][j];
+            }
+            Thread.sleep((int)(Math.random()*1501));
+            System.out.printf("%4d%2s",totalcolumna,"");
+        }
         Thread.sleep(1000);
-        System.out.print("           col0  col1  col2  col3  col4 |total = "+total+"|\n");
+        System.out.print("|total = "+total+"|\n");
 
-
+        sc.close();
     }
 }

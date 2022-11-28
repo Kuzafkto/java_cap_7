@@ -1,25 +1,37 @@
 /*
- * Realiza un programa que rellene un array de 6 filas por 10 columnas con
-números enteros positivos comprendidos entre 0 y 1000 (ambos incluidos). A
-continuación, el programa deberá dar la posición tanto del máximo como del
-mínimo.
+ * Modifica el programa anterior de tal forma que no se repita ningún número en
+el array.
+
  *@author KuzaFkto
  */
 package Bidimensionales;
 
 import java.util.Scanner;
 
-public class Ejercicio5 {
+public class Ejercicio6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        boolean repeated=false;
         int filas=6;
         int columnas=10;
+        int value;
         int[][]n=new int[filas][columnas];
         int max=-1;
         int min=1001;
         for(int i=0;i<n.length;i++){
             for(int j=0;j<n[i].length;j++){
-                n[i][j]=(int)(Math.random()*1001);
+                int posAct=i*filas+j;
+                do {
+                    repeated=false;
+                    value=((int)(Math.random()*1001));
+                    for(int k=0;k<posAct;k++){
+                        if(n[k/10][k%10]==value){
+                            repeated=true;
+                            break;
+                        }
+                    }
+                }while (repeated);
+                n[i][j]=value;
                 if(n[i][j]<min){
                     min=n[i][j];
                 }
