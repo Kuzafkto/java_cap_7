@@ -20,12 +20,12 @@ public class Ejercicio6 {
         int min=1001;
         for(int i=0;i<n.length;i++){
             for(int j=0;j<n[i].length;j++){
-                int posAct=i*filas+j;
+                int posAct=i*columnas+j;
                 do {
                     repeated=false;
-                    value=((int)(Math.random()*1001));
-                    for(int k=0;k<posAct;k++){
-                        if(n[k/10][k%10]==value){
+                    value=((int)(Math.random()*1001)); //checkea y cambia el valor pero no admite ceros, checkea todos los números?
+                     for(int k=0;k<posAct;k++){
+                        if(n[k/columnas][k%columnas]==value){
                             repeated=true;
                             break;
                         }
