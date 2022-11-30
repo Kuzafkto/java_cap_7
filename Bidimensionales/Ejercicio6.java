@@ -23,7 +23,7 @@ public class Ejercicio6 {
                 int posAct=i*columnas+j;
                 do {
                     repeated=false;
-                    value=((int)(Math.random()*1001)); //checkea y cambia el valor pero no admite ceros, checkea todos los números?
+                    value=((int)(Math.random()*1001)); //checkea y cambia el valor pero no admite ceros
                      for(int k=0;k<posAct;k++){
                         if(n[k/columnas][k%columnas]==value){
                             repeated=true;
